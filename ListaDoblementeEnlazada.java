@@ -9,8 +9,8 @@ public class ListaDoblementeEnlazada {
         this.longitud = 0;
     }
 
-    public void insertar(int dato) {
-        Nodo nuevoNodo = new Nodo(dato);
+    public void insertar(Nodo nuevoNodo) {
+        //Nodo nuevoNodo = new Nodo(nombre);
         if (primerNodo == null) {
             primerNodo = nuevoNodo;
             ultimoNodo = nuevoNodo; // Si la lista está vacía, el último nodo es el primero
@@ -20,19 +20,19 @@ public class ListaDoblementeEnlazada {
             ultimoNodo = nuevoNodo; // El nuevo nodo se convierte en el último nodo
         }
         longitud++;
-        
     }
 
-    public int obtener(int indice) {
+
+    public String obtener(int indice) {
         if (indice < 0 || indice >= longitud) {
             System.err.println("Indice fuera de rango");
-            return -1;
+            return "";
         }
         if(indice == 0){ //Cuando pide el primer nodo se usa la variable del primer nodo
-            return primerNodo.getDato();
+            return primerNodo.getNombre();
         }
         else if(indice == longitud - 1){ //Si pide el ultimo dato, nos apoyamos de la variable ultimoNodo
-            return ultimoNodo.getDato();
+            return ultimoNodo.getNombre();
         }
         //Dividimos la longitud en 2 para comparar el indice con ese resultado y asi determinar
         //si esta mas cerca del primer nodo o del ultimo nodo
@@ -41,14 +41,14 @@ public class ListaDoblementeEnlazada {
             for (int i = 0; i < indice; i++) {
                 actuaNodo = actuaNodo.getSiguiente();
             }
-            return actuaNodo.getDato();
+            return actuaNodo.getNombre();
         }
         else{ //Cuando el indice esta mas cerca del nodo final
             Nodo actuaNodo = ultimoNodo;
             for (int i = longitud - 1; i > indice; i--) {
                 actuaNodo = actuaNodo.getAnterior();
             }
-            return actuaNodo.getDato();
+            return actuaNodo.getNombre();
         }
 
     }
@@ -85,6 +85,11 @@ public class ListaDoblementeEnlazada {
         nodoEliminar.setAnterior(null);
         nodoEliminar.setSiguiente(null);
         longitud--;
+    }
+    
+    public void actualizarLista()
+    {
+        
     }
 
     public int longitud() {

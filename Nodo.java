@@ -1,20 +1,25 @@
-public class Nodo {
-
-    private int dato;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+//Esta clase representa cada bloque del marcador, a cada nodo se le asigna
+//el auto al que representa
+public class Nodo extends Actor
+{
+    private String nombre;
     private Nodo siguiente, anterior;
-
-    public Nodo(int dato) {
-        this.dato = dato;
+    private GreenfootImage imagen;
+    private Auto auto;
+    
+    public Nodo(String nombre) {
+        this.nombre = nombre;
         this.siguiente = null;
         this.anterior = null;
     }
 
-    public int getDato() {
-        return dato;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDato(int dato) {
-        this.dato = dato;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Nodo getSiguiente() {
