@@ -8,20 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Pista extends World
 {
-
+    
     public Pista()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1);
         
-        addObject(new Auto(), 536, 576);
-        addObject(new Auto(), 481, 576);
-        addObject(new Auto(), 424, 576);
-        addObject(new Auto(), 361, 576);
-        addObject(new Auto(), 298, 576);
-        addObject(new Auto(), 235, 576);
-        addObject(new Auto(), 176, 576);
-        addObject(new Auto(), 115, 576);
+
         
         prepare();
     }
@@ -32,6 +25,14 @@ public class Pista extends World
     private void prepare()
     {
         Marcador marcador = new Marcador();
+        addObject(new Auto("rojo"), 536, 576);
+        addObject(new Auto("verde"), 481, 576);
+        addObject(new Auto("azul"), 424, 576);
+        addObject(new Auto("amarillo"), 361, 576);
+        addObject(new Auto("blanco"), 298, 576);
+        addObject(new Auto("negro"), 235, 576);
+        addObject(new Auto("morado"), 176, 576);
+        addObject(new Auto("naranja"), 115, 576);
         addObject(marcador,776,300);
     }
 }
