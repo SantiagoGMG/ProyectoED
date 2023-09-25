@@ -13,9 +13,6 @@ public class Pista extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1);
-        
-
-        
         prepare();
     }
     /**
@@ -24,7 +21,15 @@ public class Pista extends World
      */
     private void prepare()
     {
+        String autos[] = {"negro","rojo","verde","morado","amarillo","azul","naranja","blanco"};
+        int posicionX[] = {115,176,235,298,361,424,481,536};
+        for(int i = 0; i < 8; i++)
+        {
+            addObject(new Auto(autos[i]), posicionX[i], 576);
+        }
         Marcador marcador = new Marcador();
+        /*
+        
         addObject(new Auto("rojo"), 536, 576);
         addObject(new Auto("verde"), 481, 576);
         addObject(new Auto("azul"), 424, 576);
@@ -34,5 +39,6 @@ public class Pista extends World
         addObject(new Auto("morado"), 176, 576);
         addObject(new Auto("naranja"), 115, 576);
         addObject(marcador,776,300);
+        */
     }
 }

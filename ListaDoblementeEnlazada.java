@@ -103,14 +103,14 @@ public class ListaDoblementeEnlazada {
     {
         while(true)
         {
-            int indice = 0;
+            int indice = -1;
             Nodo nodoPorCambiar=primerNodo;
             //Vamos a revisar desde el primer auto para comparar si su posicion
             //debe ser actualizada
-            for(int i =0; i< longitud; i++){
+            for(int i =0; i< longitud-1; i++){
                 if(nodoPorCambiar.getAuto().getY() > nodoPorCambiar.getSiguiente().getAuto().getY())
                 {
-                    indice = i+1;
+                    indice = i + 1;
                     break;
                 }
                 nodoPorCambiar = nodoPorCambiar.getSiguiente();
