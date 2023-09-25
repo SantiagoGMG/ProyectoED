@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-public class Auto extends Actor
+public class Auto extends SmoothMover
+
 {
     private String nombre; //Indica el color del auto
     private static GreenfootImage imagen;
