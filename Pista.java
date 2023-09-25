@@ -1,11 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class MyWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Pista extends World
 {
     
@@ -21,24 +14,14 @@ public class Pista extends World
      */
     private void prepare()
     {
-        String autos[] = {"negro","rojo","verde","morado","amarillo","azul","naranja","blanco"};
+        String colores[] = {"negro","rojo","verde","morado","amarillo","azul","naranja","blanco"};
         int posicionX[] = {115,176,235,298,361,424,481,536};
+        Auto autos[] = new Auto[8];
         for(int i = 0; i < 8; i++)
         {
-            addObject(new Auto(autos[i]), posicionX[i], 576);
+            autos[i] = new Auto(colores[i]);
+            addObject(autos[i], posicionX[i], 576);
         }
-        Marcador marcador = new Marcador();
-        /*
-        
-        addObject(new Auto("rojo"), 536, 576);
-        addObject(new Auto("verde"), 481, 576);
-        addObject(new Auto("azul"), 424, 576);
-        addObject(new Auto("amarillo"), 361, 576);
-        addObject(new Auto("blanco"), 298, 576);
-        addObject(new Auto("negro"), 235, 576);
-        addObject(new Auto("morado"), 176, 576);
-        addObject(new Auto("naranja"), 115, 576);
-        addObject(marcador,776,300);
-        */
+        addObject(new Marcador(autos), 776,300);
     }
 }

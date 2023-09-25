@@ -12,7 +12,7 @@ public class Auto extends Actor
     }
     public void act()
     {   
-        velocidad();
+        //velocidad();
         mover();
     }
 
@@ -23,7 +23,7 @@ public class Auto extends Actor
         return velocidad;
     }
     
-        public void mover()
+    public void mover()
     {
         setLocation(getX(),getY()-velocidad());
     }
