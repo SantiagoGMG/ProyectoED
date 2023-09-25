@@ -9,8 +9,8 @@ public class ListaDoblementeEnlazada {
         this.longitud = 0;
     }
 
-    public void insertar(int dato) {
-        Nodo nuevoNodo = new Nodo(dato);
+    public void insertar(Nodo nuevoNodo) {
+        //Nodo nuevoNodo = new Nodo(nombre);
         if (primerNodo == null) {
             primerNodo = nuevoNodo;
             ultimoNodo = nuevoNodo; // Si la lista está vacía, el último nodo es el primero
@@ -20,19 +20,18 @@ public class ListaDoblementeEnlazada {
             ultimoNodo = nuevoNodo; // El nuevo nodo se convierte en el último nodo
         }
         longitud++;
-        
     }
 
-    public int obtener(int indice) {
+    public String obtener(int indice) {
         if (indice < 0 || indice >= longitud) {
             System.err.println("Indice fuera de rango");
-            return -1;
+            return "";
         }
         if(indice == 0){ //Cuando pide el primer nodo se usa la variable del primer nodo
-            return primerNodo.getDato();
+            return primerNodo.getNombre();
         }
         else if(indice == longitud - 1){ //Si pide el ultimo dato, nos apoyamos de la variable ultimoNodo
-            return ultimoNodo.getDato();
+            return ultimoNodo.getNombre();
         }
         //Dividimos la longitud en 2 para comparar el indice con ese resultado y asi determinar
         //si esta mas cerca del primer nodo o del ultimo nodo
@@ -41,14 +40,14 @@ public class ListaDoblementeEnlazada {
             for (int i = 0; i < indice; i++) {
                 actuaNodo = actuaNodo.getSiguiente();
             }
-            return actuaNodo.getDato();
+            return actuaNodo.getNombre();
         }
         else{ //Cuando el indice esta mas cerca del nodo final
             Nodo actuaNodo = ultimoNodo;
             for (int i = longitud - 1; i > indice; i--) {
                 actuaNodo = actuaNodo.getAnterior();
             }
-            return actuaNodo.getDato();
+            return actuaNodo.getNombre();
         }
 
     }
@@ -85,6 +84,46 @@ public class ListaDoblementeEnlazada {
         nodoEliminar.setAnterior(null);
         nodoEliminar.setSiguiente(null);
         longitud--;
+    }
+    
+    //Devuelve false si las posiciones de los autos han cambiado
+    //Recorre desde el primer nodo hasta el ultimo buscando alguna incoherencia entre
+    //la posicion actual del auto y su posicion en el eje Y
+    public boolean listaActualizada(Nodo nodo)
+    {
+        if(nodo.getSiguiente() == null)
+            return true;
+        else if(nodo.getAuto().getX() > nodo.getSiguiente().getAuto().getY())
+            return false;
+        else
+            return listaActualizada(nodo.getSiguiente());
+    }
+    
+    public void actualizarLista()
+    {
+        while(true)
+        {
+            int indice = 0;
+            Nodo nodoPorCambiar=primerNodo;
+            //Vamos a revisar desde el primer auto para comparar si su posicion
+            //debe ser actualizada
+            for(int i =0; i< longitud; i++){
+                if(nodoPorCambiar.getAuto().getY() > nodoPorCambiar.getSiguiente().getAuto().getY())
+                {
+                    indice = i+1;
+                    break;
+                }
+                nodoPorCambiar = nodoPorCambiar.getSiguiente();
+            }
+            //Este bucle se ejecutara solo si se encontro un auto fuera de lugar
+            //en el for anterior
+            for(int i = 0; i < indice; i++)
+            {
+                
+            }
+                
+            
+        }
     }
 
     public int longitud() {
