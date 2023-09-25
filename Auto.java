@@ -11,8 +11,21 @@ public class Auto extends Actor
         setImage(imagen);
     }
     public void act()
+    {   
+        velocidad();
+        mover();
+    }
+
+    public int velocidad()
     {
-        // Add your action code here.
+        //genera numeros dentro del rango 0 a 4 y ese es el valor del movimiento del carro
+        int velocidad = (int)(Math.random() * ( 4-0+1)+1);
+        return velocidad;
+    }
+    
+        public void mover()
+    {
+        setLocation(getX(),getY()-velocidad());
     }
     public String getNombre()
     {
