@@ -15,7 +15,7 @@ public class ListaDoblementeEnlazada {
             primerNodo = nuevoNodo;
             ultimoNodo = nuevoNodo; // Si la lista está vacía, el último nodo es el primero
         } else {
-            nuevoNodo.setAnterior(ultimoNodo); // El nodo anterior al nuevo nodo es el último nodo 
+            //nuevoNodo.setAnterior(ultimoNodo); // El nodo anterior al nuevo nodo es el último nodo 
             ultimoNodo.setSiguiente(nuevoNodo); // El siguiente del último nodo es el nuevo nodo 
             ultimoNodo = nuevoNodo; // El nuevo nodo se convierte en el último nodo
         }
@@ -115,12 +115,20 @@ public class ListaDoblementeEnlazada {
                 }
                 nodoPorCambiar = nodoPorCambiar.getSiguiente();
             }
-            //Este bucle se ejecutara solo si se encontro un auto fuera de lugar
-            //en el for anterior
-            for(int i = 0; i < indice; i++)
-            {
+            /*Para mover un nodo se siguen siguen 3 pasos
+             * 1 - El nodo anterior ahora pasa a apuntar al nodo siguiente del nodo actual
+             * 2 - Actualizar las referencias del nodo actual, tanto siguiente como anterior
+             * 3 - Actualizar ambas referencias del nodo siguiente
+             */
+            do{
+                if(nodoPorCambiar == primerNodo)
+                    primerNodo = nodoPorCambiar.getSiguiente();
+                else
+                    nodoPorCambiar.getAnterior().setSiguiente(nodoPorCambiar.getSiguiente());
+                nodoPorCambiar.setSiguiente(nodoPorCambiar.getSiguiente().getSiguiente());
                 
-            }
+                
+            }while(nodoPorCambiar.getAuto().getY() > nodoPorCambiar.getSiguiente().getAuto().getY());
                 
             
         }

@@ -11,7 +11,7 @@ public class Nodo extends Actor
     public Nodo(Auto auto) {
         this.auto = auto;
         this.siguiente = null;
-        this.anterior = null;
+        //this.anterior = null;
     }
 
     public String getNombre() {
