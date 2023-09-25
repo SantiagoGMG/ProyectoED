@@ -23,5 +23,13 @@ public class Pista extends World
             addObject(autos[i], posicionX[i], 576);
         }
         addObject(new Marcador(autos), 776,300);
+        //790,90);
+        //790,150);
+        //790,210);
+        //790,270);
+        //790,330);
+        //790,390);
+        //790,450);
+        //790,510);
     }
 }
