@@ -15,20 +15,20 @@ public abstract class SmoothMover extends Actor
      * (Overrides the method in Actor).
      */
     @Override
-    public void move(int distance)
+    public void move(int velocidad)
     {
-        move((double)distance);
+        move((double)velocidad);
     }
     
     /**
      * Move forward by the specified exact distance.
      */
-    public void move(double distance)
+    public void move(double velocidad)
     {
         double radians = Math.toRadians(getRotation());
-        double dx = Math.cos(radians) * distance;
-        double dy = Math.sin(radians) * distance;
-        setLocation(exactX + dx, exactY + dy);
+        double dx = Math.cos(radians) * velocidad;
+        double dy = Math.sin(radians) * velocidad;
+        setLocation(exactX, exactY - dx);
     }
     
     /**
