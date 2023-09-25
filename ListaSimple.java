@@ -29,8 +29,9 @@ public class ListaSimple {
     public void actualizarLista() {
         boolean cambioNecesario = false;
         Nodo nodoPorCambiar = primerNodo, anterior = null;
+        int yActual,yNuevo;
         // Revisa desde el primer auto hasta el penultimo para comparar si su posicion debe ser actualizada
-        for (int i = 0; i < longitud - 2; i++) {
+        for (int i = 0; i < longitud - 1; i++) {
             if (nodoPorCambiar.getAuto().getY() < nodoPorCambiar.getSiguiente().getAuto().getY()) 
             {
                 cambioNecesario = true;
@@ -38,27 +39,38 @@ public class ListaSimple {
             }
             anterior = nodoPorCambiar;
             nodoPorCambiar = nodoPorCambiar.getSiguiente();
+            
+            
         }
         
         if(cambioNecesario)
         {
+            yActual = nodoPorCambiar.getY();
+            yNuevo = nodoPorCambiar.getSiguiente().getY();
+            
             if (anterior == null) 
             {
                 primerNodo = primerNodo.getSiguiente();
                 nodoPorCambiar.setSiguiente(nodoPorCambiar.getSiguiente().getSiguiente());
                 primerNodo.setSiguiente(nodoPorCambiar);
+                
+                nodoPorCambiar.setLocation(790,yNuevo);
+                primerNodo.setLocation(790,yActual);
             } else 
             { 
                 anterior.setSiguiente(nodoPorCambiar.getSiguiente());
                 nodoPorCambiar.setSiguiente(nodoPorCambiar.getSiguiente().getSiguiente());
                 anterior.getSiguiente().setSiguiente(nodoPorCambiar);
+                
+                nodoPorCambiar.setLocation(790,yNuevo);
+                anterior.getSiguiente().setLocation(790,yActual);
                 if(nodoPorCambiar.getSiguiente() == null)
                     ultimoNodo = nodoPorCambiar;
             }
         }
     }
 
-    public int longitud(){
+    public int getLongitud(){
         return longitud;
     }
 }

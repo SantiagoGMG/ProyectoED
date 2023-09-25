@@ -5,8 +5,6 @@ public class Marcador extends Actor
     private ListaSimple lista;
     private Auto auto[];
     private Nodo nodo[];
-    private int posiciones[] = {510,450,390,330,270,210,150,90}; 
-    //Guarda la coordenada en Y donde debe estar cada nodo, va del octavo lugar hasta el primero
     
     public Marcador()
     {
@@ -14,15 +12,13 @@ public class Marcador extends Actor
         auto = new Auto[8];
     }
     
-    public Marcador(Auto[] autos)
+    public Marcador(Auto[] autos, Nodo nodos[])
     {
         lista = new ListaSimple();
-        nodo = new Nodo[8];
+        nodo = nodos;
         auto = autos;
         for(int i = 0; i < 8; i++)
         {
-            nodo[i] = new Nodo(auto[i]);
-            //getWorld().addObject(nodo[i], 100,100);
             lista.insertar(nodo[i]);
         }
     }
@@ -30,5 +26,4 @@ public class Marcador extends Actor
     {
         lista.actualizarLista();
     }
-    
 }

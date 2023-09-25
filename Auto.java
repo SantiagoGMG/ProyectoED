@@ -4,29 +4,42 @@ public class Auto extends SmoothMover
 {
     private String nombre; //Indica el color del auto
     private static GreenfootImage imagen;
-    private int velocidad;
+    //private int velocidad;
     private int contador=0;
-    private int cambioV=10;
+    //private int cambioV=10;
+    private double velocidad;
     public Auto(String nombre)
     {
         this.nombre = nombre;
         imagen = new GreenfootImage("coches/" + nombre + ".png");
         setImage(imagen);
-         
     }
+    
     public void act()
-    {   
-        //velocidad();
-        //mover();     
-        move(asignarVelocidad());
-        cambioV--;
-        //move (cambioDeVelocidad());  
-        
-
-        //contador--;
+    {    
+        cambioVelocidad();
+        avanzar();
+        contador--;
         
     }
-
+    
+    public void cambioVelocidad()
+    {
+        if(contador <= 0){
+            velocidad = Math.random() * 2 + 0.5;
+            contador = 10;
+        }
+    }
+    
+    public void avanzar()
+    {
+        setLocation(getX(), getY()- velocidad);
+    }
+    public String getNombre()
+    {
+        return nombre;
+    }
+    /*
     public int asignarVelocidad()
     {
         if (contador==0)
@@ -60,11 +73,11 @@ public class Auto extends SmoothMover
         }
         cambioV=10;
         //return velocidad;
-        /*//genera numeros dentro del rango 0 a 4 y ese es el valor del movimiento del carro
-        velocidad = (int)(Math.random() * ( 4-0+1)+1);*/
+        //genera numeros dentro del rango 0 a 4 y ese es el valor del movimiento del carro
+        velocidad = (int)(Math.random() * ( 4-0+1)+1);
         return velocidad;
     }
-    
+    */
     /*public int cambioDeVelocidad()
     {
         if (cambioV==0)
@@ -89,13 +102,10 @@ public class Auto extends SmoothMover
         cambioV=50;
         return velocidad;
     }*/
-    
+    /*
     public void mover()
     {
         setLocation(getX(),getY()-asignarVelocidad());
     }
-    public String getNombre()
-    {
-        return nombre;
-    }
+    */
 }

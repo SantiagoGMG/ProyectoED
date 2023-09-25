@@ -11,6 +11,7 @@ public class Nodo extends Actor
         this.auto = auto;
         nombre = auto.getNombre();
         imagen = new GreenfootImage("nodos/" + nombre + ".png");
+        setImage(imagen);
         this.siguiente = null;
     }
 
