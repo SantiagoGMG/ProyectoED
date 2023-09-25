@@ -5,6 +5,8 @@ public class Marcador extends Actor
     private ListaSimple lista;
     private Auto auto[];
     private Nodo nodo[];
+    private int posiciones[] = {510,450,390,330,270,210,150,90}; 
+    //Guarda la coordenada en Y donde debe estar cada nodo, va del octavo lugar hasta el primero
     
     public Marcador()
     {
