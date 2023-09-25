@@ -22,7 +22,6 @@ public class ListaDoblementeEnlazada {
         longitud++;
     }
 
-
     public String obtener(int indice) {
         if (indice < 0 || indice >= longitud) {
             System.err.println("Indice fuera de rango");
@@ -87,9 +86,44 @@ public class ListaDoblementeEnlazada {
         longitud--;
     }
     
+    //Devuelve false si las posiciones de los autos han cambiado
+    //Recorre desde el primer nodo hasta el ultimo buscando alguna incoherencia entre
+    //la posicion actual del auto y su posicion en el eje Y
+    public boolean listaActualizada(Nodo nodo)
+    {
+        if(nodo.getSiguiente() == null)
+            return true;
+        else if(nodo.getAuto().getX() > nodo.getSiguiente().getAuto().getY())
+            return false;
+        else
+            return listaActualizada(nodo.getSiguiente());
+    }
+    
     public void actualizarLista()
     {
-        
+        while(true)
+        {
+            int indice = 0;
+            Nodo nodoPorCambiar=primerNodo;
+            //Vamos a revisar desde el primer auto para comparar si su posicion
+            //debe ser actualizada
+            for(int i =0; i< longitud; i++){
+                if(nodoPorCambiar.getAuto().getY() > nodoPorCambiar.getSiguiente().getAuto().getY())
+                {
+                    indice = i+1;
+                    break;
+                }
+                nodoPorCambiar = nodoPorCambiar.getSiguiente();
+            }
+            //Este bucle se ejecutara solo si se encontro un auto fuera de lugar
+            //en el for anterior
+            for(int i = 0; i < indice; i++)
+            {
+                
+            }
+                
+            
+        }
     }
 
     public int longitud() {

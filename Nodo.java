@@ -8,8 +8,8 @@ public class Nodo extends Actor
     private GreenfootImage imagen;
     private Auto auto;
     
-    public Nodo(String nombre) {
-        this.nombre = nombre;
+    public Nodo(Auto auto) {
+        this.auto = auto;
         this.siguiente = null;
         this.anterior = null;
     }
@@ -38,4 +38,7 @@ public class Nodo extends Actor
         this.anterior = anterior;
     }
     
+    public Auto getAuto(){
+        return auto;
+    }
 }
