@@ -1,16 +1,20 @@
-public class ListaSimple {
+public class ListaSimple 
+{
     private Nodo primerNodo;
     private Nodo ultimoNodo;
     private int longitud;
 
-    public ListaSimple() {
+    public ListaSimple() 
+    {
         this.primerNodo = null;
         this.ultimoNodo = null;
         this.longitud = 0;
     }
 
-    public void insertar(Nodo nuevoNodo) {
-        if (primerNodo == null) {
+    public void insertar(Nodo nuevoNodo) 
+    {
+        if (primerNodo == null) 
+        {
             primerNodo = nuevoNodo;
             ultimoNodo = nuevoNodo; // Si la lista esta vacia, el ultimo nodo es el primero
         } else {
@@ -26,12 +30,14 @@ public class ListaSimple {
      * 3 - El nodo a cambiar cambia su referencia al nodo siguiente del nodo que acaba de "rebasar"
      * 4 - El nodo que representa al auto que acaba de ser rebasado, ahora hace referencia al nodo que lo rebaso
      */
-    public void actualizarLista() {
+    public void actualizarLista() 
+    {
         boolean cambioNecesario = false;
         Nodo nodoPorCambiar = primerNodo, anterior = null;
         int yActual,yNuevo;
         // Revisa desde el primer auto hasta el penultimo para comparar si su posicion debe ser actualizada
-        for (int i = 0; i < longitud - 1; i++) {
+        for (int i = 0; i < longitud - 1; i++) 
+        {
             if (nodoPorCambiar.getAuto().getY() < nodoPorCambiar.getSiguiente().getAuto().getY()) 
             {
                 cambioNecesario = true;
@@ -39,8 +45,6 @@ public class ListaSimple {
             }
             anterior = nodoPorCambiar;
             nodoPorCambiar = nodoPorCambiar.getSiguiente();
-            
-            
         }
         
         if(cambioNecesario)
@@ -70,7 +74,8 @@ public class ListaSimple {
         }
     }
 
-    public int getLongitud(){
+    public int getLongitud()
+    {
         return longitud;
     }
 }

@@ -7,7 +7,9 @@ public class Nodo extends Actor
     private Nodo siguiente;
     private GreenfootImage imagen;
     private Auto auto;
-    public Nodo(Auto auto) {
+    
+    public Nodo(Auto auto) 
+    {
         this.auto = auto;
         nombre = auto.getNombre();
         imagen = new GreenfootImage("nodos/" + nombre + ".png");
@@ -15,23 +17,28 @@ public class Nodo extends Actor
         this.siguiente = null;
     }
 
-    public String getNombre() {
+    public String getNombre() 
+    {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) 
+    {
         this.nombre = nombre;
     }
 
-    public Nodo getSiguiente() {
+    public Nodo getSiguiente() 
+    {
         return siguiente;
     }
 
-    public void setSiguiente(Nodo siguiente) {
+    public void setSiguiente(Nodo siguiente) 
+    {
         this.siguiente = siguiente;
     }
     
-    public Auto getAuto(){
+    public Auto getAuto()
+    {
         return auto;
     }
 }

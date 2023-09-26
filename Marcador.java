@@ -22,6 +22,7 @@ public class Marcador extends Actor
             lista.insertar(nodo[i]);
         }
     }
+    
     public void act()
     {
         lista.actualizarLista();
