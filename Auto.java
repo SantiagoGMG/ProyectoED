@@ -18,6 +18,7 @@ public class Auto extends SmoothMover
         cambioVelocidad();
         avanzar();
         contador--;
+        eliminarAuto();
         
     }
     
@@ -38,5 +39,15 @@ public class Auto extends SmoothMover
     public String getNombre()
     {
         return nombre;
+    }
+    
+    public void eliminarAuto()
+    {
+        if(getY() == 0)
+        {
+            getWorld().getObjects(Marcador.class).get(0).getLista().eliminar(getWorld().getObjects(Marcador.class).get(0).getLista().getLongitud()-1);
+            getWorld().removeObject(this);
+        }
+        
     }
 }

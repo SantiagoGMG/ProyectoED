@@ -27,4 +27,9 @@ public class Marcador extends Actor
     {
         lista.actualizarLista();
     }
+    
+    public ListaSimple getLista()
+    {
+        return lista;
+    }
 }
